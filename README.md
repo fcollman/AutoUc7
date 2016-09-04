@@ -9,7 +9,7 @@ I have only gotten this code working on an Arduino Leanardo, which has the advan
 However, the firmware must be modified in one important way, in that when you program the arduino with the arduino IDE, it also presents itself to the computer as having a CDC serial interface, that can be used to communicate to a computer host connected to the USB.  This however, confuses the Leica UC-7.  If you attempt to connect it to the Leica, the Leica will pop up with a message asking what driver it should use, and of course does not have an arduino driver loaded.  It subsequently will not respond to the mouse component of the arduino device.  In order to make this work, the CDC serial driver must be disabled.  This can be done in a few ways, but I edited the  USBCore.cpp file in the Arduino IDE code.  See my fork of the arduino IDE, which has only this one edit.
 https://github.com/fcollman/Arduino/commit/c367990383f96d17395ee36162fc6dc19ef0ef83. 
 
-This adds a small complication in that you must reprogram the Leanardo while its in bootloader mode, which by default lasts for a few seconds after each reset.  Simply hold the reset button, hit upload on the Arduino IDE, and then release the reset button once the IDE says "uploading". 
+Once you have reprogrammed the Leanardo with this code, you should no longer see a Serial Port available on your computer when youc onnect the Leanardo.  This adds a small complication in that you must reprogram the Leanardo while its in bootloader mode, which by default lasts for a few seconds after each reset.  So to reprogram it, simply hold the reset button, hit upload on the Arduino IDE, and then release the reset button once the IDE says "uploading". 
 
 #Arduino program
 
