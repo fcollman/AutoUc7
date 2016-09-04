@@ -32,3 +32,6 @@ Description: end cutting
 
 It also sets up a simple set of digital control lines for direct TTL control of the first two UC-7 presets.  We use these as section thickness 0 nm, and our production thickness (45-100nm).  When Pin 2 goes high, it will bring Pin 4 low, then activate preset thickness 0 and then bring Pin 4 high, indicating that it has received the TTL signal.  When Pin 3 goes high, it will ring Pin 5 low, then activate preset thickness 1 and then bring Pin 5 high, indicating that it has received the TTL signal. 
 
+#Operation
+
+The arduino code works simply by moving the mouse in a reproducable fashion.  First it brings the mouse to the extreme upper left, by sending a series of upward and leftward movements.  It then moves the cursor downwards and to the right to access specific pixels on the Leica screen and clicking on the buttons. It is in this sense an open loop control interface and has not yet been extensively tested for reliability. 
