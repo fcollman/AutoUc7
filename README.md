@@ -13,7 +13,7 @@ Once you have reprogrammed the Leanardo with this code, you should no longer see
 
 #Arduino program
 
-The LeicaMouse.ino file in the repo should be used to reprogram the Leanardo.
+The LeicaUC7Serial.ino file in the repo should be used to reprogram the Leanardo.
 
 By default the sketch sets up a serial interface on Serial1 (pins 0,1).
 
