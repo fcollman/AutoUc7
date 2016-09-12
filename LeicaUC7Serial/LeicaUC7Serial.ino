@@ -11,8 +11,6 @@
     character and x is an integer.
 ***/
 
-/*** Removed code for communication using digital reads and writes ***/
-
 //Allow easy syntax for serial printing
 template<class T> inline Print &operator <<(Print &o, T arg) {o.print(arg); return o;}
 
