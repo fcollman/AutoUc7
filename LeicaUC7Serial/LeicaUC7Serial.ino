@@ -4,9 +4,9 @@
 /*** Changed communication protocol to require incomig message to start with a character.
     At the moment the 'P' and 'Y' characters are handled. P stands for (Cutting Thickness) Preset,
     and should be followed by an integer x, where x = 1,2..5.
-    The Y character allow you to change the deltaY movement.
+    The Y character allow you to change the deltaY movement of the mouse.
     Any handled command receives a response that is formatted as: "[chx]" where ch is the
-    character and x is a number, e.g. [P2] meaning that Cutting Thickness Preset 2 was executed.
+    character and x is an integer, e.g. [P2] meaning that Cutting Thickness Preset 2 was executed.
     If an invalid command is received, the code returns: [Invalid Input: chx], where ch is a
     character and x is an integer.
 ***/
@@ -68,8 +68,7 @@ void loop() {
     }
 
     //Response to client
-    if(ch == 'P' || ch == 'Y')
-    {
+    if(ch == 'P' || ch == 'Y'){
       Serial1 << "[" << ch << x << "]";
     }
   }

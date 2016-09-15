@@ -1,7 +1,9 @@
 # AutoUc7
 Arduino code for programmatic interfacing with Leica UC 7 via mouse emulation
 
-The Leica UC7 ultramicrotome has a touch screen interface with a usb input on the back of the machine.  A mouse can be plugged into that port, and used to control the microtome via clicking on buttons.  This project aims to provide a programmatic way to interface with the UC7, thereby starting/stopping the microtome, and changing between cut thickness presets in an automated way.  This theoretically can allow you to coordinate the section cutting with other aspects of a microtome collection system.
+The Leica UC7 ultramicrotome has a touch screen interface with a usb input on the back of the machine.  A mouse can be plugged into that port, and used to control the microtome via clicking on buttons.  
+
+This project aims to provide a programmatic way to interface with the UC7, thereby starting/stopping the microtome, and changing between cut thickness presets in an automated way.  This theoretically can allow you to coordinate the section cutting with other aspects of a microtome collection system.
 
 # Arduino setup
 I have only gotten this code working on an Arduino Leonardo, which has the advantage of being pre-setup with firmware that presents a USB HID device, and works with the built in Arduino Mouse library.
@@ -22,9 +24,10 @@ The present software communication protocol is as follows, but can easily be exp
 Send: Px (x = 1-5)
 Response: Px
 Description: activate cut preset number x, where x=1 is the lowest most preset on the Leica screen.
+
 Send: Yx (x = any integer)
 Response: Yx
-Description: Set the Delta Y step between different presets.
+Description: Set the Delta Y step between different presets. 
 
 HW protocol
 The sketch also sets up a simple set of digital control lines for direct TTL control of the first two UC-7 presets.  We use these as section thickness 0 nm, and our production thickness (45-100nm). When Pin 2 goes high, it will bring Pin 4 low, then activate preset thickness 0 and then bring Pin 4 high, indicating that it has received the TTL signal. When Pin 3 goes high, it will ring Pin 5 low, then activate preset thickness 1 and then bring Pin 5 high, indicating that it has received the TTL signal. 
